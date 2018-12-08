@@ -16,4 +16,7 @@ Three data files were used, including chicago.csv, new_york_city.csv, and washin
 
 ### Credits
 
-https://stackoverflow.com/questions/32239161/python-grouping-by-multiple-columns-and-getting-max-or-sum
+A [blog][1] post I referred too.
+
+
+[1]: https://stackoverflow.com/questions/32239161/python-grouping-by-multiple-columns-and-getting-max-or-sum
