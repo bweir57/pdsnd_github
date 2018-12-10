@@ -12,7 +12,12 @@ The intent was to create an interactive experience that provided insight into Bi
 
 ### Files used
 
-Three data files were used, including chicago.csv, new_york_city.csv, and washington.csv. The script itself is then contained in BikeShareProj.py.
+Three data files were used, including:
+* chicago.csv
+* new_york_city.csv
+* washington.csv
+
+The script itself is then contained in BikeShareProj.py.
 
 ### Credits
 
