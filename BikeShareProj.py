@@ -48,10 +48,10 @@ def get_filters():
                             break
 
                         else:
-                            print("Please enter valid month.\n\n")
+                            print_m()
 
                     except:
-                        print("Please enter valid month.\n\n")
+                        print_m()
             #parse the input
             elif(inp =='day'):
                 while(True):
@@ -62,10 +62,10 @@ def get_filters():
                             going = False
                             break
                         else:
-                            print("Please enter valid month.\n\n")
+                            print_m()
 
                     except:
-                        print("Please enter valid month.\n\n")
+                        print_m()
 
             elif(inp == 'both'):
 
@@ -77,9 +77,9 @@ def get_filters():
                             break
 
                         else:
-                            print("Please enter valid month.\n\n")
+                            print_m()
                     except:
-                        print("Please enter valid month.\n\n")
+                        print_m()
 
                 while(True):
                     try:
@@ -90,9 +90,9 @@ def get_filters():
                               going = False
                               break
                           else:
-                              print("Please enter valid month.\n\n")
+                              print_m()
                     except:
-                          print("Please enter valid month.\n\n")
+                          print_m()
 
 
 
@@ -109,6 +109,9 @@ def get_filters():
     print('-'*40)
     return city, month, day, filt
 
+
+def print_m():
+    print("Please enter valid month.\n\n")
 
 def load_data(city, month, day):
     """
