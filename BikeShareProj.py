@@ -193,19 +193,19 @@ def station_stats(df):
 
     m_start = df['Start Station'].mode()[0]
     count = df[df['Start Station'] == m_start].count()[0]
-    print("Start Station: " + str(m_start) + ", Count:" + str(count) + "\n")
+    print("Start Station: {}  , Count:  {}  \n").format(str(m_start), str(count))
 
 
     # TO DO: display most commonly used end station
     m_end = df['End Station'].mode()[0]
     count = df[df['End Station'] == m_end].count()[0]
-    print("End Station: " + str(m_end) + ", Count:" + str(count) + "\n")
+    print("End Station:  {} , Count:  {}  \n").format(str(m_end), str(count))
 
 
     # TO DO: display most frequent combination of start station and end station trip
     print("Most popular trip: \n")
     comb = df.groupby(['Start Station', 'End Station']).apply(lambda x: x.mode())
-    print("Start Station: " +  str(comb.iloc[0][4]) + "\nEnd Station: " + str(comb.iloc[0][5]) + "\n")
+    print("Start Station: {}   \nEnd Station: {} \n").format(str(comb.iloc[0][4]), str(comb.iloc[0][5]))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -220,12 +220,12 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     tot_time = df['Trip Duration'].sum()
-    print("Total duration: " +  str(tot_time) + " seconds.\n")
+    print("Total duration: {} seconds.\n").format(str(tot_time))
 
 
     # TO DO: display mean travel time
     mean_time = df['Trip Duration'].mean()
-    print("Avg Duration: " + str(mean_time) + " seconds.\n")
+    print("Avg Duration: {} seconds.\n").format(str(mean_time))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
