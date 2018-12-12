@@ -36,9 +36,9 @@ def get_filters():
     going = True
     while(going):
         try:
-            inp = str(input('Would you like to filter the data by month, day, both, or not at all? Enter "none" for no time filter. ')).lower()
-            filt = str(inp)
-            if(inp == 'month'):
+            filt = str(input('Would you like to filter the data by month, day, both, or not at all? Enter "none" for no time filter. ')).lower()
+
+            if(filt == 'month'):
                 while(True):
                     try:
                         month = str(input('Which month? January, February, March, April, May, or June? Please type out the full month name. ')).lower()
@@ -53,7 +53,7 @@ def get_filters():
                     except:
                         print_m()
             #parse the input
-            elif(inp =='day'):
+            elif(filt =='day'):
                 while(True):
                     try:
                         day = str(input('Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday? Please type out the full day name. ')).lower()
@@ -67,7 +67,7 @@ def get_filters():
                     except:
                         print_m()
 
-            elif(inp == 'both'):
+            elif(filt == 'both'):
 
                 while(True):
                     try:
@@ -96,7 +96,7 @@ def get_filters():
 
 
 
-            elif(inp == 'none'):
+            elif(filt == 'none'):
                  month = 'all'
                  day = 'all'
                  going = False
