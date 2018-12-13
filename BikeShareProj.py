@@ -36,9 +36,9 @@ def get_filters():
     going = True
     while(going):
         try:
-            inp = str(input('Would you like to filter the data by month, day, both, or not at all? Enter "none" for no time filter. ')).lower()
-            filt = str(inp)
-            if(inp == 'month'):
+            filt = str(input('Would you like to filter the data by month, day, both, or not at all? Enter "none" for no time filter. ')).lower()
+
+            if(filt == 'month'):
                 while(True):
                     try:
                         month = str(input('Which month? January, February, March, April, May, or June? Please type out the full month name. ')).lower()
@@ -48,12 +48,12 @@ def get_filters():
                             break
 
                         else:
-                            print("Please enter valid month.\n\n")
+                            print_m()
 
                     except:
-                        print("Please enter valid month.\n\n")
+                        print_m()
             #parse the input
-            elif(inp =='day'):
+            elif(filt =='day'):
                 while(True):
                     try:
                         day = str(input('Which day? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday? Please type out the full day name. ')).lower()
@@ -62,12 +62,12 @@ def get_filters():
                             going = False
                             break
                         else:
-                            print("Please enter valid month.\n\n")
+                            print_m()
 
                     except:
-                        print("Please enter valid month.\n\n")
+                        print_m()
 
-            elif(inp == 'both'):
+            elif(filt == 'both'):
 
                 while(True):
                     try:
@@ -77,9 +77,9 @@ def get_filters():
                             break
 
                         else:
-                            print("Please enter valid month.\n\n")
+                            print_m()
                     except:
-                        print("Please enter valid month.\n\n")
+                        print_m()
 
                 while(True):
                     try:
@@ -90,13 +90,13 @@ def get_filters():
                               going = False
                               break
                           else:
-                              print("Please enter valid month.\n\n")
+                              print_m()
                     except:
-                          print("Please enter valid month.\n\n")
+                          print_m()
 
 
 
-            elif(inp == 'none'):
+            elif(filt == 'none'):
                  month = 'all'
                  day = 'all'
                  going = False
@@ -109,6 +109,9 @@ def get_filters():
     print('-'*40)
     return city, month, day, filt
 
+
+def print_m():
+    print("Please enter valid month.\n\n")
 
 def load_data(city, month, day):
     """
@@ -199,19 +202,19 @@ def station_stats(df):
 
     m_start = df['Start Station'].mode()[0]
     count = df[df['Start Station'] == m_start].count()[0]
-    print("Start Station: " + str(m_start) + ", Count:" + str(count) + "\n")
+    print("Start Station: {}  , Count:  {}  \n").format(str(m_start), str(count))
 
 
     # TO DO: display most commonly used end station
     m_end = df['End Station'].mode()[0]
     count = df[df['End Station'] == m_end].count()[0]
-    print("End Station: " + str(m_end) + ", Count:" + str(count) + "\n")
+    print("End Station:  {} , Count:  {}  \n").format(str(m_end), str(count))
 
 
     # TO DO: display most frequent combination of start station and end station trip
     print("Most popular trip: \n")
     comb = df.groupby(['Start Station', 'End Station']).apply(lambda x: x.mode())
-    print("Start Station: " +  str(comb.iloc[0][4]) + "\nEnd Station: " + str(comb.iloc[0][5]) + "\n")
+    print("Start Station: {}   \nEnd Station: {} \n").format(str(comb.iloc[0][4]), str(comb.iloc[0][5]))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -231,12 +234,12 @@ def trip_duration_stats(df):
 
     # TO DO: display total travel time
     tot_time = df['Trip Duration'].sum()
-    print("Total duration: " +  str(tot_time) + " seconds.\n")
+    print("Total duration: {} seconds.\n").format(str(tot_time))
 
 
     # TO DO: display mean travel time
     mean_time = df['Trip Duration'].mean()
-    print("Avg Duration: " + str(mean_time) + " seconds.\n")
+    print("Avg Duration: {} seconds.\n").format(str(mean_time))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
